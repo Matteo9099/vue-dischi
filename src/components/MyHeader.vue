@@ -5,7 +5,7 @@
       <SelectGenere
         placeholder="Seleziona un genere"
         :options="genres"
-        @change-option="selectedGenres"
+        @change="selectedGenres"
       />
     </div>
   </header>
@@ -20,6 +20,7 @@ export default {
     SelectGenere,
   },
   props: ["genres"],
+
   methods: {
     selectedGenres(selectedOption) {
       this.$emit("selected-genre", selectedOption);
@@ -30,6 +31,7 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/style/variabili.scss";
+
     header {
         height: 70px;
         background-color: $bgColorHeader;

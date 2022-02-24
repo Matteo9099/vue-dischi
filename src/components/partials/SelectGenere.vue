@@ -1,18 +1,14 @@
 <template>
-  <select v-model="selectedOption" class="mx-3" @change="changeOption">
-    <option :placeholder="placeholder" value="">
-      {{ placeholder || "Select an option" }}
-    </option>
-    <option v-for="(option, index) in options" :key="index">
-      {{ option }}
-    </option>
+  <select class="mx-3" @change="changeOption">
+    <option value="">Seleziona un genere</option>
+    <option v-for="(option, index) in options" :key="index" :value="option">{{ option }}</option>
   </select>
 </template>
 
 <script>
 export default {
   name: "SelectGenere",
-  props: ["placeholder", "options"],
+  props: ["options"],
   data() {
     return {
       selectedOption: "",

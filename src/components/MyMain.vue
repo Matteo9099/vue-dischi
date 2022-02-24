@@ -27,12 +27,15 @@ export default {
   components: {
     CardComponents,
   },
+
   data() {
     return {
       albums: [],
     };
   },
+
   computed: {
+
     filteredAlbums() {
       if (!this.selectedGenre) return this.albums;
       return this.albums.filter((album) => {
@@ -40,7 +43,9 @@ export default {
       });
     },
   },
+
   methods: {
+
     fetchAlbums() {
       axios
         .get("https://flynn.boolean.careers/exercises/api/array/music")
@@ -55,6 +60,7 @@ export default {
         });
     },
   },
+
   created() {
     this.fetchAlbums();
   },
