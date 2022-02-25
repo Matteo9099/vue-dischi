@@ -2,24 +2,32 @@
   <header class="d-flex justify-content-between align-items-center">
     <img src="../assets/img/logo-spotify.png" alt="" />
     <div>
-      <SelectGenere
-        placeholder="Seleziona un genere"
-        :options="genres"
-        @change="selectedGenres"
-      />
+      <select v-model="selectedGenre" @change="$('selectedGenreEvt', selectedGenre)">
+
+        <option value="">Seleziona un genere</option>
+
+        <option v-for="(genre, index) in genresList" :key="index" :value="genre">{{ genre }}</option>
+
+      </select>
+
     </div>
   </header>
 </template>
 
 <script>
-import SelectGenere from "./partials/SelectGenere.vue";
+
 
 export default {
   name: "MyHeader",
-  components: {
-    SelectGenere,
+
+  props: { 
+            "genresList" : Array
   },
-  props: ["genres"],
+  data() {
+    return{
+        selectedGenre: ''
+    }
+  },
 
   methods: {
     selectedGenres(selectedOption) {

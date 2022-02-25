@@ -22,7 +22,6 @@ export default {
     .album-card {
         color: white;
         background-color: $colorCard;
-        display: inline-block;
         text-align: center;
         padding: 15px;
         margin: 15px;

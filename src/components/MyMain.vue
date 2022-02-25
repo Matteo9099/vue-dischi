@@ -23,7 +23,9 @@ import axios from "axios";
 
 export default {
   name: "MyMain",
-  props: ["selectedGenre"],
+  props: {
+            "selectedGenre": String
+  },
   components: {
     CardComponents,
   },
@@ -39,9 +41,10 @@ export default {
     filteredAlbums() {
       if (!this.selectedGenre) return this.albums;
       return this.albums.filter((album) => {
-        return album.genre === this.selectedGenre;
+        return album.genre = this.selectedGenre;
       });
     },
+
   },
 
   methods: {
@@ -56,7 +59,7 @@ export default {
             const genre = album.genre;
             if (!genres.includes(genre)) genres.push(genre);
           });
-          this.$emit("genres-ready", genres);
+          this.$emit("genresReady", genres);
         });
     },
   },

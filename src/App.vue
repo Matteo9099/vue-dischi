@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <!-- richiamo componenti all'interno della page -->
-      <MyHeader />
-      <MyMain />
+      <MyHeader :genresList="genreList" @selectedGenreEvt="setSelectedGenre"/>
+      <MyMain @genresReady="setGenres" :selectedGenre="selectedGenre" />
   </div>
 </template>
 
@@ -17,6 +17,20 @@ export default {
     // componenti da aggiungere
       MyHeader,
       MyMain
+  },
+  data(){
+      return{
+        genresList: [],
+        selectedGenre: ''
+      }
+  },
+  methods: {
+      setGenres(genresListEvt) {
+        this.genresList = genresListEvt;
+      },
+      setSelectedGenre(selectedGenreEvt) {
+        this.selectedGenre = selectedGenreEvt;
+      }
   }
 }
 </script>
